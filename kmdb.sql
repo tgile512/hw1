@@ -5,7 +5,7 @@
 
 -- Requirements/assumptions
 --
--- - There will only be three movies in the database – the three films
+-- - There will only be three movies in the database – the three films
 --   that make up Christopher Nolan's Batman trilogy
 -- - Movie data includes the movie title, year released, MPAA rating,
 --   and director
@@ -76,11 +76,6 @@
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
--- Prints a header for the movies output
-.print "Movies"
-.print "======"
-.print ""
-
 -- The SQL statement for the movies output
 -- TODO!
 
@@ -90,6 +85,179 @@
 .print "========"
 .print ""
 
-
 -- The SQL statement for the cast output
 -- TODO!
+
+-- Drops existing tables, so we start fresh with each
+-- run of this script
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS top_cast;
+
+-- Creating Tables
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    movie_name TEXT,
+    release_year INTEGER,
+    rating TEXT,
+    director TEXT
+);
+
+CREATE TABLE actors (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    actor_name TEXT,
+    actor_role TEXT
+);
+
+CREATE TABLE top_cast (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    movie_name TEXT,
+    actor TEXT,
+    movie_role TEXT
+);
+
+-- Populating movies table
+
+INSERT INTO movies (
+    movie_name,
+    release_year,
+    rating,
+    director
+)
+VALUES (
+    'Batman Begins',
+    '2005',
+    'PG-13',
+    'Christopher Nolan'
+);
+INSERT INTO movies (
+    movie_name,
+    release_year,
+    rating,
+    director
+)
+VALUES (
+    'The Dark Knight',
+    '2008',
+    'PG-13',
+    'Christopher Nolan'
+);
+INSERT INTO movies (
+    movie_name,
+    release_year,
+    rating,
+    director
+)
+VALUES (
+    'The Dark Knight Rises',
+    '2012',
+    'PG-13',
+    'Christopher Nolan'
+);
+
+-- Populating actor table
+INSERT INTO actors (
+    actor_name,
+    actor_role
+)
+VALUES (
+    'Christian Bale',
+    'Bruce Wayne'
+);
+
+INSERT INTO actors (
+    actor_name,
+    actor_role
+)
+VALUES (
+    'Michael Caine',
+    'Alfred'
+);
+
+INSERT INTO actors (
+    actor_name,
+    actor_role
+)
+VALUES (
+    'Liam Neeson',
+    'Ra Al Ghul'
+);
+
+INSERT INTO actors (
+    actor_name,
+    actor_role
+)
+VALUES (
+    'Katie Holmes',
+    'Rachel Dawes'
+);
+
+INSERT INTO actors (
+    actor_name,
+    actor_role
+)
+VALUES (
+    'Gary Oldman',
+    'Commissioner Gordon'
+);
+
+INSERT INTO actors (
+    actor_name,
+    actor_role
+)
+VALUES (
+    'Heath Ledger',
+    'Joker'
+);
+
+INSERT INTO actors (
+    actor_name,
+    actor_role
+)
+VALUES (
+    'Aaron Eckhart',
+    'Harvey Dent'
+);
+
+INSERT INTO actors (
+    actor_name,
+    actor_role
+)
+VALUES (
+    'Maggie Gyllenhaal',
+    'Rachel Dawes'
+);
+
+INSERT INTO actors (
+    actor_name,
+    actor_role
+)
+VALUES (
+    'Tom Hardy',
+    'Bane'
+);
+
+INSERT INTO actors (
+    actor_name,
+    actor_role
+)
+VALUES (
+    'Joseph Gordon-Levitt',
+    'John Blake'
+);
+
+INSERT INTO actors (
+    actor_name,
+    actor_role
+)
+VALUES (
+    'Anne Hathaway',
+    'Selina Kyle'
+);
+-- Prints a header for the movies output
+.print "Movies"
+.print "======"
+.print ""
+
+SELECT * FROM movies;
+
+SELECT * FROM actors;
