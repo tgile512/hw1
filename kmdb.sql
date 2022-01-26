@@ -91,7 +91,11 @@
 -- Drops existing tables, so we start fresh with each
 -- run of this script
 DROP TABLE IF EXISTS movies;
-DROP TABLE IF EXISTS top_cast;
+DROP TABLE IF EXISTS actors;
+DROP TABLE IF EXISTS directors;
+DROP TABLE IF EXISTS roles;
+
+-------------------------------------------------------
 
 -- Creating Tables
 CREATE TABLE movies (
@@ -99,165 +103,63 @@ CREATE TABLE movies (
     movie_name TEXT,
     release_year INTEGER,
     rating TEXT,
-    director TEXT
+    director_id INTEGER
 );
 
 CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     actor_name TEXT,
-    actor_role TEXT
+    role_id INTEGER,
+    movie_id INTEGER
 );
 
-CREATE TABLE top_cast (
+CREATE TABLE directors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    movie_name TEXT,
-    actor TEXT,
-    movie_role TEXT
+    name TEXT
 );
+
+CREATE TABLE roles (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT
+);
+
+-------------------------------------------------------
 
 -- Populating movies table
 
-INSERT INTO movies (
-    movie_name,
-    release_year,
-    rating,
-    director
-)
-VALUES (
-    'Batman Begins',
-    '2005',
-    'PG-13',
-    'Christopher Nolan'
-);
-INSERT INTO movies (
-    movie_name,
-    release_year,
-    rating,
-    director
-)
-VALUES (
-    'The Dark Knight',
-    '2008',
-    'PG-13',
-    'Christopher Nolan'
-);
-INSERT INTO movies (
-    movie_name,
-    release_year,
-    rating,
-    director
-)
-VALUES (
-    'The Dark Knight Rises',
-    '2012',
-    'PG-13',
-    'Christopher Nolan'
-);
+INSERT INTO movies (movie_name, release_year, rating, director_id)
+VALUES ('Batman Begins', '2005', 'PG-13','1');
 
--- Populating actor table
-INSERT INTO actors (
-    actor_name,
-    actor_role
-)
-VALUES (
-    'Christian Bale',
-    'Bruce Wayne'
-);
+INSERT INTO movies (movie_name, release_year, rating, director_id)
+VALUES ('The Dark Knight', '2008', 'PG-13','1');
 
-INSERT INTO actors (
-    actor_name,
-    actor_role
-)
-VALUES (
-    'Michael Caine',
-    'Alfred'
-);
+INSERT INTO movies (movie_name, release_year, rating, director_id)
+VALUES ('The Dark Knight Rises', '2012', 'PG-13','1');
 
-INSERT INTO actors (
-    actor_name,
-    actor_role
-)
-VALUES (
-    'Liam Neeson',
-    'Ra Al Ghul'
-);
+-- Populating directors table
 
-INSERT INTO actors (
-    actor_name,
-    actor_role
-)
-VALUES (
-    'Katie Holmes',
-    'Rachel Dawes'
-);
+INSERT INTO directors (name)
+VALUES ('Christopher Nolan');
 
-INSERT INTO actors (
-    actor_name,
-    actor_role
-)
-VALUES (
-    'Gary Oldman',
-    'Commissioner Gordon'
-);
+-- Populating roles table
 
-INSERT INTO actors (
-    actor_name,
-    actor_role
-)
-VALUES (
-    'Heath Ledger',
-    'Joker'
-);
-
-INSERT INTO actors (
-    actor_name,
-    actor_role
-)
-VALUES (
-    'Aaron Eckhart',
-    'Harvey Dent'
-);
-
-INSERT INTO actors (
-    actor_name,
-    actor_role
-)
-VALUES (
-    'Maggie Gyllenhaal',
-    'Rachel Dawes'
-);
-
-INSERT INTO actors (
-    actor_name,
-    actor_role
-)
-VALUES (
-    'Tom Hardy',
-    'Bane'
-);
-
-INSERT INTO actors (
-    actor_name,
-    actor_role
-)
-VALUES (
-    'Joseph Gordon-Levitt',
-    'John Blake'
-);
-
-INSERT INTO actors (
-    actor_name,
-    actor_role
-)
-VALUES (
-    'Anne Hathaway',
-    'Selina Kyle'
-);
--- Prints a header for the movies output
-.print "Movies"
-.print "======"
-.print ""
-
-SELECT * FROM movies;
-
-SELECT * FROM actors;
+INSERT INTO roles (name)
+VALUES ('Bruce Wayne');
+INSERT INTO roles (name)
+VALUES ('Alfred');
+INSERT INTO roles (name)
+VALUES ('Commissioner Gordon');
+INSERT INTO roles (name)
+VALUES ("Ra's Al Ghul");
+INSERT INTO roles (name)
+VALUES ('Rachel Dawes');
+INSERT INTO roles (name)
+VALUES ('Joker');
+INSERT INTO roles (name)
+VALUES ('Harvey Dent');
+INSERT INTO roles (name)
+VALUES ('Bane');
+INSERT INTO roles (name)
+VALUES ('John Blake');
+INSERT INTO roles (name)
+VALUES ('Selina Kyle');
