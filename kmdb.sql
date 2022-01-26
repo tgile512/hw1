@@ -123,6 +123,8 @@ CREATE TABLE roles (
     name TEXT
 );
 
+
+
 -------------------------------------------------------
 
 -- Populating movies table
@@ -163,3 +165,46 @@ INSERT INTO roles (name)
 VALUES ('John Blake');
 INSERT INTO roles (name)
 VALUES ('Selina Kyle');
+
+-- Populating actors table
+
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Christian Bale', '1', '1');
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Christian Bale', '1', '2');
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Christian Bale', '1', '3');
+
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Michael Caine', '2', '1');
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Michael Caine', '2', '2');
+
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Gary Oldman', '3', '1');
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Gary Oldman', '3', '3');
+
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Liam Neeson', '4', '1');
+
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Katie Holmes', '5', '1');
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Maggie Gyllenhaal', '5', '2');
+
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Heath Ledger', '6', '2');
+
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Aaron Eckhart', '7', '2');
+
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Tom Hardy', '8', '3');
+
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Joseph Gordon-Levitt', '9', '3');
+
+INSERT INTO actors (actor_name, role_id, movie_id)
+VALUES ('Anne Hathaway', '10', '3');
+
